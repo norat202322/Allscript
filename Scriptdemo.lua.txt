@@ -29,11 +29,24 @@ loadstring(game:HttpGet(("https://raw.githubusercontent.com/daucobonhi/Ui-Redz-V
        StrokeColor = Color3.fromRGB(255, 0, 0)
       })
       
-
+     Main0=Window:AddTab({ Title="Thông Tin" }
      local Tab1o = MakeTab({Name = "Script blox fruit"})
      local Tab2o = MakeTab({Name = "Script dead rali"})
 
-    
+    Tabs.Main0:AddButton({
+    Title = "Youtuber",
+    Description = "Norat Roblox",
+    Callback = function()
+        setclipboard("https://youtube.com/@norat_roblox?si=hPu3N2TFqUBhzBmd)
+    end
+})
+
+    Tabs.Main0:AddButton({
+    Title = "Youtuber",
+    Description = "norat Gamer",
+    Callback = function()
+        setclipboard("https://youtube.com/@norat_roblox?si=hPu3N2TFqUBhzBmd")
+    end
     AddButton(Tab1o, {
      Name = "Redz Hub",
     Callback = function()
