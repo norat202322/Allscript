@@ -1,0 +1,26 @@
+
+
+local a,b,c,d,e=Instance.new,Instance.new,Instance.new,Instance.new,Instance.new local f=a("ScreenGui") local g=b("ImageButton") local h=c("UICorner") f.Name="GuiNorat";f.Parent=game:GetService("CoreGui");f.ZIndexBehavior=Enum.ZIndexBehavior.Sibling g.Parent=f g.BackgroundColor3=Color3.fromRGB(0,0,0) g.BorderSizePixel=0 g.Position=UDim2.new(0.106,0,0.162,0) g.Size=UDim2.new(0,40,0,40) g.Draggable=true g.Image="http://www.roblox.com/asset/?id=118544376581900" h.CornerRadius=UDim.new(1,10) h.Parent=g
+
+g.MouseButton1Down:Connect(function() game:GetService("VirtualInputManager"):SendKeyEvent(true,Enum.KeyCode.End,false,game) end)
+
+-- Anti Leak Check spawn(function() while wait(5) do if not f:IsDescendantOf(game:GetService("CoreGui")) then f:Destroy() break end end end)
+
+-- Load Fluent UI local s=loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))() repeat task.wait() until game:IsLoaded()
+
+local w=s:CreateWindow({ Title="Norat Roblox Tổng Hợp", SubTitle="Blox Fruit", TabWidth=157, Size=UDim2.fromOffset(555,320), Acrylic=true, Theme="Dark", MinimizeKey=Enum.KeyCode.End })
+
+local t={ Main0=w:AddTab({Title="Thông Tin"}), Main1=w:AddTab({Title="Script Farm"}), Main2=w:AddTab({Title="Farm Fruit"}), Main3=w:AddTab({Title="Farm Chest"}), Main4=w:AddTab({Title="Script Hop"}) }
+
+local function clip(txt) setclipboard(txt) end
+
+-- Tab Thong tin t.Main0:AddButton({Title="Discord",Description="Join Discord",Callback=function() clip("https://discord.gg/YvNt8aCk") end}) t.Main0:AddButton({Title="Youtuber",Description="Norat Roblox",Callback=function() clip("https://www.youtube.com/@norat_roblox") end})
+
+-- Tab Script Farm local function loadurl(url) loadstring(game:HttpGet(url))() end
+
+t.Main1:AddButton({Title="Redz Hub",Callback=function() loadurl("https://raw.githubusercontent.com/newredz/BloxFruits/refs/heads/main/Source.luau") end}) t.Main1:AddButton({Title="GreenZ Hub",Callback=function() loadurl("https://raw.githubusercontent.com/LuaAnarchist/GreenZ-Hub/refs/heads/main/KaitunDoughKing.lua") end}) t.Main1:AddButton({Title="Banana Cat",Callback=function() loadurl("https://raw.githubusercontent.com/newredz/BloxFruits/refs/heads/main/Source.luau") end}) t.Main1:AddButton({Title="Maru Hub",Callback=function() getgenv().Team="Marines" loadurl("https://raw.githubusercontent.com/LuaCrack/KimP/refs/heads/main/MaruHub") end}) t.Main1:AddButton({Title="Norat Hub",Callback=function() loadurl("https://raw.githubusercontent.com/norat202322/Notat-/refs/heads/main/norat.lua.txt") end}) t.Main1:AddButton({Title="Turbo Lite",Callback=function() loadurl("https://raw.githubusercontent.com/TurboLite/Script/refs/heads/main/Main.lua") end}) t.Main1:AddButton({Title="Turbo Lite Fix lag",Callback=function() loadurl("https://raw.githubusercontent.com/TurboLite/Script/main/FixLag.lua") end})
+
+-- Tab Farm Fruit t.Main2:AddButton({Title="Turbo Lite Nhặt Trái",Callback=function() loadurl("https://raw.githubusercontent.com/TurboLite/Script/refs/heads/main/TraiCay.lua") end})
+
+
+
