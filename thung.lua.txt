@@ -32,95 +32,85 @@ loadstring(game:HttpGet(("https://raw.githubusercontent.com/daucobonhi/Ui-Redz-V
        StrokeColor = Color3.fromRGB(255, 0, 0)
       })
       
+     local Tab1 0o = MakeTab({Name = "Thông tin"})
+     local Tab1o = MakeTab({Name = "Script blox fruit"})
+     local Tab2o = MakeTab({Name = "Script dead rali"})
 
-local Tabs = {
-        Main0=Window:AddTab({ Title="Thông Tin" }),
-        Main1=Window:AddTab({ Title="Script Farm" }),
-        Main2=Window:AddTab({ Title="Farm Fruit" }),
-        Main3=Window:AddTab({ Title="Farm Chest" }),
-        Main4=Window:AddTab({ Title="Script Hop" }),
-  }
-    Tabs.Main0:AddButton({
-    Title = "Discord",
+     
+     AddButton(Tab0o, {
+    Name = "Discord",
     Description = "NoratRoblox Community",
     Callback = function()
         setclipboard("https://discord.gg/YvNt8aCk")
     end
 })
 
-    Tabs.Main0:AddButton({
-    Title = "Youtuber",
+    AddButton(Tab0o, {
+    Name = "Youtuber",
     Description = "Norat Roblox",
     Callback = function()
         setclipboard("https://www.youtube.com/@norat_roblox")
     end
 })
-
-    Tabs.Main0:AddButton({
-    Title = "Youtuber",
+    AddButton(Tab0o, {
+    Name = "Youtuber",
     Description = "Norat Gamer",
     Callback = function()
         setclipboard("https://www.youtube.com/@norat_roblox")
-    end
-})
-    
-    Tabs.Main1:AddButton({
-    Title="Redz Hub",
-    Description="",
-    Callback=function()
-      loadstring(game:HttpGet("https://raw.githubusercontent.com/newredz/BloxFruits/refs/heads/main/Source.luau"))()
-  end
-})
+    end 
+      })
+    AddButton(Tab1o, {
+     Name = "Redz Hub",
+    Callback = function()
+	  local Settings = {
+  JoinTeam = "Pirates"; -- Pirates/Marines
+  Translator = true; -- true/false
+}
 
-Tabs.Main1:AddButton({
-    Title="GreenZ Hub",
-    Description="",
-    Callback=function()
-	  loadstring(game:HttpGet("https://raw.githubusercontent.com/LuaAnarchist/GreenZ-Hub/refs/heads/main/KaitunDoughKing.lua"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/realredz/BloxFruits/refs/heads/main/Source.lua"))(Settings)
   end
-})
-Tabs.Main1:AddButton({
-    Title="Banana Cat",
-    Description="",
-    Callback=function()
-      loadstring(game:HttpGet("https://raw.githubusercontent.com/newredz/BloxFruits/refs/heads/main/Source.luau"))()
+  })
+  AddButton(Tab1o, {
+     Name = "banana Hub",
+    Callback = function()
+	  loadstring(game:HttpGet("https://raw.githubusercontent.com/kimprobloxdz/Banana-Free/refs/heads/main/Protected_5609200582002947.lua.txt"))()
   end
-})
-Tabs.Main1:AddButton({
-    Title="Maru Hub",
-    Description="",
-    Callback=function()
-      getgenv().Team = "Marines"
+  })
+  AddButton(Tab1o, {
+     Name = "min Hub",
+    Callback = function()
+	  loadstring(game:HttpGet("https://raw.githubusercontent.com/LuaCrack/Min/refs/heads/main/MinA1Eng"))()
+  end
+  })
+  AddButton(Tab1o, {
+     Name = "norat Hub",
+    Callback = function()
+	  loadstring(game:HttpGet("https://raw.githubusercontent.com/norat202322/Notat-/refs/heads/main/norat.lua.txt"))()
+  end
+  })
+AddButton(Tab1o, {
+     Name = "Maru Hub",
+    Callback = function()
+	  getgenv().Team = "Marines"
 loadstring(game:HttpGet("https://raw.githubusercontent.com/LuaCrack/KimP/refs/heads/main/MaruHub"))()
   end
-})
-Tabs.Main1:AddButton({
-    Title="Norat hub",
-    Description="",
-    Callback=function()
-      loadstring(game:HttpGet("https://raw.githubusercontent.com/norat202322/Notat-/refs/heads/main/norat.lua.txt"))()
+  })
+  AddButton(Tab2o, {
+     Name = "Dead Rail Open/Close",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/JonasThePogi/DeadRails/refs/heads/main/newloadstring"))()
   end
-})
-Tabs.Main1:AddButton({
-    Title="Turbo Lite",
-    Description="",
-    Callback=function()
-      loadstring(game:HttpGet("https://raw.githubusercontent.com/TurboLite/Script/refs/heads/main/Main.lua"))()
+  })
+  AddButton(Tab2o, {
+     Name = "Cáo Hub Dead Rail",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/caomod2077/Script/refs/heads/main/DeadRails_BypassTp_Castle.lua"))()
   end
-})
-Tabs.Main1:AddButton({
-    Title="Turbo Lite Fix lag",
-    Description="",
-    Callback=function()
-      loadstring(game:HttpGet("https://raw.githubusercontent.com/TurboLite/Script/main/FixLag.lua"))()
+  })
+  AddButton(Tab2o, {
+     Name = "Anti Cheat Dead Rail",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/AmareScripts/DeadRails/refs/heads/main/Bypass%25AntiCheat.lua"))()
   end
-})
-Tabs.Main2:AddButton({
-    Title="Turbo Lite Nhặt Trái",
-    Description="",
-    Callback=function()
-      loadstring(game:HttpGet("https://raw.githubusercontent.com/TurboLite/Script/refs/heads/main/TraiCay.lua"))()
-  end
-})
-
-
+  })
+  
