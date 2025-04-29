@@ -13,7 +13,7 @@ box.TextColor3 = Color3.fromRGB(255, 255, 255)
 box.ClearTextOnFocus = false
 
 local btn = Instance.new("TextButton", frame)
-btn.Text = "Xác Nhận"
+btn.Text = "Xác Nhận Key"
 btn.Size = UDim2.new(0, 280, 0, 40)
 btn.Position = UDim2.new(0, 10, 0, 70)
 btn.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
@@ -30,19 +30,18 @@ local correctKey = "2012-02-2012"
 
 btn.MouseButton1Click:Connect(function()
     if box.Text == correctKey then
-        gui:Destroy() -- Đóng giao diện
-        -- Load script khi key đúng
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/norat202322/Allscript/refs/heads/main/Me"))() -- Tải script từ đường dẫn
+        gui:Destroy()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/norat202322/Allscript/refs/heads/main/Tonghop"))()
     else
-        frame.BackgroundColor3 = Color3.fromRGB(255, 0, 0) -- Đổi màu giao diện khi nhập sai key
+        frame.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
         wait(1)
-        frame.BackgroundColor3 = Color3.fromRGB(30, 30, 30) -- Quay lại màu cũ
+        frame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
     end
 end)
 
 getKeyBtn.MouseButton1Click:Connect(function()
-    setclipboard("https://yeumoney.com/HuzQy3U") -- Link lấy key
+    setclipboard("https://yeumoney.com/HuzQy3U")
     getKeyBtn.Text = "Đã sao chép liên kết"
     wait(1.5)
-    getKeyBtn.Text = "Lấy Key" -- Đổi lại tên nút sau khi sao chép
+    getKeyBtn.Text = "Lấy Key"
 end)
