@@ -1,0 +1,57 @@
+local input=Instance.new("ScreenGui",game.CoreGui)
+local frame=Instance.new("Frame",input)
+frame.Size=UDim2.new(0,300,0,120)
+frame.Position=UDim2.new(0.5,-150,0.5,-60)
+frame.BackgroundColor3=Color3.fromRGB(30,30,30)
+local box=Instance.new("TextBox",frame)
+box.PlaceholderText="Nhập mật khẩu..."
+box.Size=UDim2.new(0,280,0,50)
+box.Position=UDim2.new(0,10,0,10)
+box.BackgroundColor3=Color3.fromRGB(50,50,50)
+box.TextColor3=Color3.fromRGB(255,255,255)
+box.ClearTextOnFocus=false
+local btn=Instance.new("TextButton",frame)
+btn.Text="Xác Nhận"
+btn.Size=UDim2.new(0,280,0,40)
+btn.Position=UDim2.new(0,10,0,70)
+btn.BackgroundColor3=Color3.fromRGB(70,70,70)
+btn.TextColor3=Color3.fromRGB(255,255,255)
+
+btn.MouseButton1Click:Connect(function()
+    if box.Text=="2012-02-22" then
+        input:Destroy()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/norat202322/Allscript/refs/heads/main/Tonghop"))()
+    else
+        frame.BackgroundColor3=Color3.fromRGB(255,0,0)
+        wait(1)
+        game:Shutdown()
+    end
+end)
+
+local keyWindow = Instance.new("ScreenGui", game.CoreGui)
+local keyFrame = Instance.new("Frame", keyWindow)
+keyFrame.Size = UDim2.new(0, 300, 0, 120)
+keyFrame.Position = UDim2.new(0.5, -150, 0.5, -60)
+keyFrame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+
+local keyBox = Instance.new("TextBox", keyFrame)
+keyBox.PlaceholderText = "Nhập Key..."
+keyBox.Size = UDim2.new(0, 280, 0, 50)
+keyBox.Position = UDim2.new(0, 10, 0, 10)
+keyBox.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+keyBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+keyBox.ClearTextOnFocus = false
+
+local keyBtn = Instance.new("TextButton", keyFrame)
+keyBtn.Text = "Lấy Key"
+keyBtn.Size = UDim2.new(0, 280, 0, 40)
+keyBtn.Position = UDim2.new(0, 10, 0, 70)
+keyBtn.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
+keyBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
+
+keyBtn.MouseButton1Click:Connect(function()
+    setclipboard("https://yeumoney.com/HuzQy3U") -- Link lấy key
+    keyFrame.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
+    wait(1)
+    keyFrame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+end)
