@@ -1,0 +1,126 @@
+loadstring(game:HttpGet(("https://raw.githubusercontent.com/daucobonhi/Ui-Redz-V2/refs/heads/main/UiREDzV2.lua")))()
+
+       local Window = MakeWindow({
+         Hub = {
+         Title = "Norat  Roblox",
+         SubTitle = "Blox Fruit",
+         Acrylic = true,
+         Theme = "Dark",
+         Animation = "Youtube: Norat  Roblox"
+         },
+        Key = {
+        KeySystem = false,
+        Title = "Key System",
+        Description = "",
+        KeyLink = "https://yeumoney.com/HuzQy3U",
+        Keys = {"A7B9-Q1D5-P3X8-W2M0"},
+        Notifi = {
+        Notifications = true,
+        CorrectKey = "Running the Script...",
+       Incorrectkey = "The key is incorrect",
+       CopyKeyLink = "Copied to Clipboard"
+      }
+    }
+  })
+
+       MinimizeButton({
+       Image = "http://www.roblox.com/asset/?id=118544376581900",
+       Size = {60, 60},
+       Color = Color3.fromRGB(10, 10, 10),
+       Corner = true,
+       Stroke = false,
+       StrokeColor = Color3.fromRGB(255, 0, 0)
+      })
+      
+
+local Tabs = {
+        Main0=Window:AddTab({ Title="Thông Tin" }),
+        Main1=Window:AddTab({ Title="Script Farm" }),
+        Main2=Window:AddTab({ Title="Farm Fruit" }),
+        Main3=Window:AddTab({ Title="Farm Chest" }),
+        Main4=Window:AddTab({ Title="Script Hop" }),
+  }
+    Tabs.Main0:AddButton({
+    Title = "Discord",
+    Description = "NoratRoblox Community",
+    Callback = function()
+        setclipboard("https://discord.gg/YvNt8aCk")
+    end
+})
+
+    Tabs.Main0:AddButton({
+    Title = "Youtuber",
+    Description = "Norat Roblox",
+    Callback = function()
+        setclipboard("https://www.youtube.com/@norat_roblox")
+    end
+})
+
+    Tabs.Main0:AddButton({
+    Title = "Youtuber",
+    Description = "Norat Gamer",
+    Callback = function()
+        setclipboard("https://www.youtube.com/@norat_roblox")
+    end
+})
+    
+    Tabs.Main1:AddButton({
+    Title="Redz Hub",
+    Description="",
+    Callback=function()
+      loadstring(game:HttpGet("https://raw.githubusercontent.com/newredz/BloxFruits/refs/heads/main/Source.luau"))()
+  end
+})
+
+Tabs.Main1:AddButton({
+    Title="GreenZ Hub",
+    Description="",
+    Callback=function()
+	  loadstring(game:HttpGet("https://raw.githubusercontent.com/LuaAnarchist/GreenZ-Hub/refs/heads/main/KaitunDoughKing.lua"))()
+  end
+})
+Tabs.Main1:AddButton({
+    Title="Banana Cat",
+    Description="",
+    Callback=function()
+      loadstring(game:HttpGet("https://raw.githubusercontent.com/newredz/BloxFruits/refs/heads/main/Source.luau"))()
+  end
+})
+Tabs.Main1:AddButton({
+    Title="Maru Hub",
+    Description="",
+    Callback=function()
+      getgenv().Team = "Marines"
+loadstring(game:HttpGet("https://raw.githubusercontent.com/LuaCrack/KimP/refs/heads/main/MaruHub"))()
+  end
+})
+Tabs.Main1:AddButton({
+    Title="Norat hub",
+    Description="",
+    Callback=function()
+      loadstring(game:HttpGet("https://raw.githubusercontent.com/norat202322/Notat-/refs/heads/main/norat.lua.txt"))()
+  end
+})
+Tabs.Main1:AddButton({
+    Title="Turbo Lite",
+    Description="",
+    Callback=function()
+      loadstring(game:HttpGet("https://raw.githubusercontent.com/TurboLite/Script/refs/heads/main/Main.lua"))()
+  end
+})
+Tabs.Main1:AddButton({
+    Title="Turbo Lite Fix lag",
+    Description="",
+    Callback=function()
+      loadstring(game:HttpGet("https://raw.githubusercontent.com/TurboLite/Script/main/FixLag.lua"))()
+  end
+})
+Tabs.Main2:AddButton({
+    Title="Turbo Lite Nhặt Trái",
+    Description="",
+    Callback=function()
+      loadstring(game:HttpGet("https://raw.githubusercontent.com/TurboLite/Script/refs/heads/main/TraiCay.lua"))()
+  end
+})
+
+
