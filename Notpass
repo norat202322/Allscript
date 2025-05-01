@@ -1,0 +1,58 @@
+local gui = script.Parent
+local TweenService = game:GetService("TweenService")
+
+local menu = gui:WaitForChild("MenuFrame")
+local keyFrame = gui:WaitForChild("KeyFrame")
+local keyBox = keyFrame:WaitForChild("KeyBox")
+local submitButton = keyFrame:WaitForChild("SubmitButton")
+local closeButton = menu:WaitForChild("CloseButton")
+local openMenuButton = gui:WaitForChild("OpenMenuButton")
+local subscribeLabel = gui:WaitForChild("SubscribeLabel")
+
+local correctKey = "norat"
+local hasAccess = false
+local isOpen = false
+
+local hiddenPosition = UDim2.new(1, 0, 0.3, 0)
+local visiblePosition = UDim2.new(0.7, 0, 0.3, 0)
+local tweenInfo = TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+
+menu.Position = hiddenPosition
+menu.Visible = true
+openMenuButton.Visible = false
+keyFrame.Visible = true
+subscribeLabel.Visible = true
+
+submitButton.MouseButton1Click:Connect(function()
+	local inputKey = string.lower(keyBox.Text)
+	if inputKey == correctKey then
+		hasAccess = true
+		keyFrame.Visible = false
+		openMenuButton.Visible = true
+		local success, err = pcall(function()
+			loadstring(game:HttpGet("https://raw.githubusercontent.com/norat202322/allscript-/main/beo.lua"))()
+		end)
+		if not success then
+			warn("Lỗi tải script:", err)
+		end
+	else
+		keyBox.Text = ""
+		keyBox.PlaceholderText = "Sai key! Đang thoát game..."
+		wait(1)
+		game.Players.LocalPlayer:Kick("Sai key! Hãy đăng ký kênh Norat Roblox.")
+	end
+end)
+
+openMenuButton.MouseButton1Click:Connect(function()
+	if not hasAccess then return end
+	isOpen = not isOpen
+	local target = isOpen and visiblePosition or hiddenPosition
+	local tween = TweenService:Create(menu, tweenInfo, {Position = target})
+	tween:Play()
+end)
+
+closeButton.MouseButton1Click:Connect(function()
+	isOpen = false
+	local tween = TweenService:Create(menu, tweenInfo, {Position = hiddenPosition})
+	tween:Play()
+end)
