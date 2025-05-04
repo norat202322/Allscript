@@ -96,51 +96,23 @@ AddButton(TabFruitCollector, {
         loadstring(game:HttpGet("https://raw.githubusercontent.com/TurboLite/Script/refs/heads/main/TraiCay.lua"))()
     end
 })
+
 -- Script hop
 AddButton(TabHop, {
-    Name = "hop rip_indra",
+    Name = "Teddy Hub Auto Hop v1",
     Callback = function()
-        getgenv().Mode = "rip_indra" -- rip_indra, Dough King, Pull Lever, TOTS, Darkbeard
-getgenv().Team = "Marines"
-repeat task.wait() until game:IsLoaded() and game:GetService("Players") and game.Players.LocalPlayer and game.Players.LocalPlayer:FindFirstChild("PlayerGui")
-loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/f0952c4a5f3db9e01f4dbd099c1f9b3c.lua"))()
+      loadstring(game:HttpGet("https://raw.githubusercontent.com/skibiditoiletgojo/Haidepzai/refs/heads/main/TeddyHop-FREE"))()
     end
-})
+}) 
 AddButton(TabHop, {
-    Name = "hop Dough King",
+    Name = "Auto Kill Tyrant of the skies",
     Callback = function()
-        getgenv().Mode = "rip_indra" -- rip_indra, Dough King, Pull Lever, TOTS, Darkbeard
-getgenv().Team = "Marines"
-repeat task.wait() until game:IsLoaded() and game:GetService("Players") and game.Players.LocalPlayer and game.Players.LocalPlayer:FindFirstChild("PlayerGui")
-loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/f0952c4a5f3db9e01f4dbd099c1f9b3c.lua"))()
-    end
-})
-AddButton(TabHop, {
-    Name = "Hop Pull Lever",
-    Callback = function()
-        getgenv().Mode = "Pull Lever" -- rip_indra, Dough King, Pull Lever, TOTS, Darkbeard
-getgenv().Team = "Marines"
-repeat task.wait() until game:IsLoaded() and game:GetService("Players") and game.Players.LocalPlayer and game.Players.LocalPlayer:FindFirstChild("PlayerGui")
-loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/f0952c4a5f3db9e01f4dbd099c1f9b3c.lua"))()
-    end
-})
-AddButton(TabHop, {
-    Name = "Hop TOTS",
-    Callback = function()
-        getgenv().Mode = "TOTS" -- rip_indra, Dough King, Pull Lever, TOTS, Darkbeard
-getgenv().Team = "Marines"
-repeat task.wait() until game:IsLoaded() and game:GetService("Players") and game.Players.LocalPlayer and game.Players.LocalPlayer:FindFirstChild("PlayerGui")
-loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/f0952c4a5f3db9e01f4dbd099c1f9b3c.lua"))()
-    end
-})
-AddButton(TabHop, {
-    Name = "Hop Darkbeard",
-    Callback = function()
-        getgenv().Mode = "Darkbeard" -- rip_indra, Dough King, Pull Lever, TOTS, Darkbeard
-getgenv().Team = "Marines"
-repeat task.wait() until game:IsLoaded() and game:GetService("Players") and game.Players.LocalPlayer and game.Players.LocalPlayer:FindFirstChild("PlayerGui")
-loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/f0952c4a5f3db9e01f4dbd099c1f9b3c.lua"))()
-    end
-})
+         getgenv().Mode = "Tyrant" 
 
+getgenv().Team = "Marines"
 
+repeat task.wait() until game:IsLoaded() and game:GetService("Players") and game.Players.LocalPlayer and game.Players.LocalPlayer:FindFirstChild("PlayerGui")
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Teddyseetink/Haidepzai/refs/heads/main/Auto-Tyrant-TEDDYHUB"))()
+    end
+}) 
